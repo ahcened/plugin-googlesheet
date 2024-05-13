@@ -1,29 +1,29 @@
 <?php
 
-namespace Kanboard\Plugin\plugin-googlesheet;
+namespace Kanboard\Plugin\RocketChat;
 
 use Kanboard\Core\Translator;
 use Kanboard\Core\Plugin\Base;
 
 /**
- * RocketChat Plugin
+ * GoogleSheet Plugin
  *
- * @package  plugin-googlesheet
- * @author   Frederic Guillot
- * @author   Olivier Maridat
- * @contributor Fabio Lucattini 
- * @contributor Jamie Owen
+ * @package  GoogleSheet
+ * @author   
+ * @author   
+ * @contributor 
+ * @contributor 
  */
 class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->hook->attach('template:config:integrations', 'RocketChat:config/integration');
-        $this->template->hook->attach('template:project:integrations', 'RocketChat:project/integration');
-        $this->template->hook->attach('template:user:integrations', 'RocketChat:user/integration');
+        $this->template->hook->attach('template:config:integrations', 'GoogleSheet:config/integration');
+        $this->template->hook->attach('template:project:integrations', 'GoogleSheet:project/integration');
+        $this->template->hook->attach('template:user:integrations', 'GoogleSheet:user/integration');
 
-        $this->userNotificationTypeModel->setType('rocketchat', 'RocketChat', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
-        $this->projectNotificationTypeModel->setType('rocketchat', 'RocketChat', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
+        $this->userNotificationTypeModel->setType('GoogleSheet', 'GoogleSheet', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
+        $this->projectNotificationTypeModel->setType('GoogleSheet', 'GoogleSheet', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
     }
 
     public function onStartup()
@@ -33,22 +33,22 @@ class Plugin extends Base
 
     public function getPluginDescription()
     {
-        return t('Receive notifications on RocketChat');
+        return t('Receive notifications on GoogleSheet');
     }
 
     public function getPluginAuthor()
     {
-        return 'Frédéric Guillot & Olivier Maridat';
+        return '';
     }
 
     public function getPluginVersion()
     {
-        return '1.0.10';
+        return '1.0.0';
     }
 
     public function getPluginHomepage()
     {
-        return 'https://github.com/kanboard/plugin-rocketchat';
+        return 'https://github.com/ahcened/plugin-googlesheet';
     }
 
     public function getCompatibleVersion()

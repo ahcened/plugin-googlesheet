@@ -1,4 +1,4 @@
-RocketChat plugin for Kanboard
+GoogleSheet plugin for Kanboard
 ==============================
 
 Note: The [original RocketChat plugin repository is declared "Not Maintained"](https://github.com/kanboard/plugin-rocketchat). This fork is maintained, has been *kind of* [accepted as the *official* replacement](https://github.com/kanboard/website/pull/255#event-4071181618) and is listed in the [Kanboard plugin marketplace](https://kanboard.org/plugins.html).
