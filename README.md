@@ -1,7 +1,7 @@
 GoogleSheet plugin for Kanboard
 ==============================
 
-Receive Kanboard notifications on [GoogleSheet](https://docs.google.com/spreadsheets).
+Receive Kanboard notifications on [GoogleSheet](https://github.com/ahcened/plugin-googlesheet).
 
 
 Author
@@ -31,29 +31,18 @@ Configuration
 
 ### GoogleSheet configuration
 
-- Generate a new webhook url after deploying the app script project
+- Generate a new webhook url after deploying the app script project in Google Sheet
 
 ### Kanboard configuration
 
-#### Individual notifications
+####  Notifications
 
-1. Copy and paste the webhook url into **Integrations ** in your
-   user profile
-2. Enable RocketChat notifications in your user profile or project settings (Optional)
+1. Copy and paste the webhook url into **Integrations ** in your project settings
+2. Enable RocketChat notifications
 3. Enjoy!
 
-#### Project notification
-
-1. Copy and paste the webhook url into **Integrations** in the
-   project settings
-2. Add the channel name (Optional)
-3. Enable RocketChat notification in the project (Optional)
-4. Enjoy!
-
-#### Kanboard configuration file
-
-One technical parameter can be override by the [Kanboard `config.php` file](https://docs.kanboard.org/en/latest/admin_guide/config_file.html):
-
+#### App script configuration variables
+Each time a deployement is done, a new Webhook URL is generated. Make sure to change it in the php code of the plugin.
 |Key | Description | Default value |
 |:---|:------------|:--------------|
 |`APPSCRIPT_WEBHOOK`   | The generated link from the app script application after deployement. | Empty |

@@ -5,25 +5,16 @@ namespace Kanboard\Plugin\RocketChat;
 use Kanboard\Core\Translator;
 use Kanboard\Core\Plugin\Base;
 
-/**
- * GoogleSheet Plugin
- *
- * @package  GoogleSheet
- * @author   
- * @author   
- * @contributor 
- * @contributor 
- */
 class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->hook->attach('template:config:integrations', 'GoogleSheet:config/integration');
-        $this->template->hook->attach('template:project:integrations', 'GoogleSheet:project/integration');
-        $this->template->hook->attach('template:user:integrations', 'GoogleSheet:user/integration');
+        $this->template->hook->attach('template:config:integrations', 'RocketChat:config/integration');
+        $this->template->hook->attach('template:project:integrations', 'RocketChat:project/integration');
+        $this->template->hook->attach('template:user:integrations', 'RocketChat:user/integration');
 
-        $this->userNotificationTypeModel->setType('GoogleSheet', 'GoogleSheet', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
-        $this->projectNotificationTypeModel->setType('GoogleSheet', 'GoogleSheet', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
+        $this->userNotificationTypeModel->setType('rocketchat', 'RocketChat', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
+        $this->projectNotificationTypeModel->setType('rocketchat', 'RocketChat', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
     }
 
     public function onStartup()
@@ -33,12 +24,12 @@ class Plugin extends Base
 
     public function getPluginDescription()
     {
-        return t('Receive notifications on GoogleSheet');
+        return t('Receive notifications on Google Sheet');
     }
 
     public function getPluginAuthor()
     {
-        return '';
+        return 'Ahcene Dahmane';
     }
 
     public function getPluginVersion()
