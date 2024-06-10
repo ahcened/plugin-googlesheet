@@ -8,7 +8,7 @@ use Kanboard\Model\TaskModel;
 
 
 define("APPSCRIPT_WEBHOOK",
-"https://script.google.com/macros/s/AKfycbxgev3PRSDxOFpZxJ1goYph4l_kCbYUGTHyzf8gPqq-bUBB-J7rXz5ntoan6As3MGBv/exec");
+"your_url");
 class RocketChat extends Base implements NotificationInterface
 {
 
