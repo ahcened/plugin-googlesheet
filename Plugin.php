@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\RocketChat;
+namespace Kanboard\Plugin\GoogleSheet;
 
 use Kanboard\Core\Translator;
 use Kanboard\Core\Plugin\Base;
@@ -9,12 +9,12 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->hook->attach('template:config:integrations', 'RocketChat:config/integration');
-        $this->template->hook->attach('template:project:integrations', 'RocketChat:project/integration');
-        $this->template->hook->attach('template:user:integrations', 'RocketChat:user/integration');
+        $this->template->hook->attach('template:config:integrations', 'GoofleSheet:config/integration');
+        $this->template->hook->attach('template:project:integrations', 'GoogleSheet:project/integration');
+        $this->template->hook->attach('template:user:integrations', 'GoogleSheet:user/integration');
 
-        $this->userNotificationTypeModel->setType('rocketchat', 'RocketChat', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
-        $this->projectNotificationTypeModel->setType('rocketchat', 'RocketChat', '\Kanboard\Plugin\RocketChat\Notification\RocketChat');
+        $this->userNotificationTypeModel->setType('googlesheet', 'GoogleSheet', '\Kanboard\Plugin\GoogleSheet\Notification\GoogleSheet');
+        $this->projectNotificationTypeModel->setType('googlesheet', 'GoogleSheet', '\Kanboard\Plugin\GoogleSheet\Notification\GoogleSheet');
     }
 
     public function onStartup()
