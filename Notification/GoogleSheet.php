@@ -1,15 +1,15 @@
 <?php
 
-namespace Kanboard\Plugin\RocketChat\Notification;
+namespace Kanboard\Plugin\GoogleSheet\Notification;
 
 use Kanboard\Core\Base;
 use Kanboard\Core\Notification\NotificationInterface;
 use Kanboard\Model\TaskModel;
 
 
-define("APPSCRIPT_WEBHOOK",
-"your_url");
-class RocketChat extends Base implements NotificationInterface
+define("APPSCRIPT_WEBHOOK","your_url");
+
+class GoogleSheet extends Base implements NotificationInterface
 {
 
 /**
