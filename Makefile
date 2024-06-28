@@ -1,4 +1,4 @@
-plugin=RocketChat
+plugin=GoogleSheet
 
 all:
 	@ echo "Build archive for plugin ${plugin} version=${version}"
