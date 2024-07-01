@@ -42,10 +42,7 @@ Configuration
 3. Enjoy!
 
 #### App script configuration variables
-Each time a deployement is done, a new Webhook URL is generated. Make sure to change it in the php code of the plugin.
-|Key | Description | Default value |
-|:---|:------------|:--------------|
-|`APPSCRIPT_WEBHOOK`   | The generated link from the app script application after deployement. | Empty |
+Each time a deployement is done, a new Webhook URL is generated. Make sure to change it in the configuration panel of the plugin.
 
 Development
 -------------
