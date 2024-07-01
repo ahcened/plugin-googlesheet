@@ -1,15 +1,12 @@
 <?php
 
-namespace Kanboard\Plugin\GoogleSheet\Notification;
+namespace Kanboard\Plugin\RocketChat\Notification;
 
 use Kanboard\Core\Base;
 use Kanboard\Core\Notification\NotificationInterface;
 use Kanboard\Model\TaskModel;
 
-
-define("APPSCRIPT_WEBHOOK","your_url");
-
-class GoogleSheet extends Base implements NotificationInterface
+class RocketChat extends Base implements NotificationInterface
 {
 
 /**
@@ -45,11 +42,8 @@ public function notifyGoogleSheets($appScriptUrl, array $data, $eventName)
     
     $responseData = json_decode($response, true);
     if (json_last_error() !== JSON_ERROR_NONE) {
-        error_log("notifyGoogleSheets: Invalid JSON response.");
         return false;
     }
-
-    error_log("notifyGoogleSheets: Response: " . print_r($responseData, true));
     return true;
 }
     /**
@@ -62,19 +56,16 @@ public function notifyGoogleSheets($appScriptUrl, array $data, $eventName)
      */
     public function notifyUser(array $user, $eventName, array $eventData)
     {
-        $webhook = $this->userMetadataModel->get($user['id'], 'rocketchat_webhook_url', $this->configModel->get('rocketchat_webhook_url'));
-        $channel = $this->userMetadataModel->get($user['id'], 'rocketchat_webhook_channel');
-
+        $webhook = $this->userMetadataModel->get($user['id'], 'rocketchat_webhook_url');
         if (! empty($webhook)) {
             if ($eventName === TaskModel::EVENT_OVERDUE) {
                 foreach ($eventData['tasks'] as $task) {
                     $project = $this->projectModel->getById($task['project_id']);
                     $eventData['task'] = $task;
-                    $this->notifyGoogleSheets(APPSCRIPT_WEBHOOK,$eventData,$eventName);
+                    $this->notifyGoogleSheets($webhook,$eventData,$eventName);
                 }
             } else {
-                $project = $this->projectModel->getById($eventData['task']['project_id']);
-                $this->notifyGoogleSheets(APPSCRIPT_WEBHOOK,$eventData,$eventName);
+                $this->notifyGoogleSheets($webhook,$eventData,$eventName);
             }
         }
     }
@@ -90,10 +81,8 @@ public function notifyGoogleSheets($appScriptUrl, array $data, $eventName)
     public function notifyProject(array $project, $eventName, array $eventData)
     {
         $webhook = $this->projectMetadataModel->get($project['id'], 'rocketchat_webhook_url');
-        $channel = $this->projectMetadataModel->get($project['id'], 'rocketchat_webhook_channel');
-
         if (! empty($webhook)) {
-            $this->notifyGoogleSheets(APPSCRIPT_WEBHOOK,$eventData,$eventName);
+            $this->notifyGoogleSheets($webhook,$eventData,$eventName);
         }
     }
 }
