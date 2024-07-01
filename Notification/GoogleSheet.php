@@ -1,12 +1,12 @@
 <?php
 
-namespace Kanboard\Plugin\RocketChat\Notification;
+namespace Kanboard\Plugin\GoogleSheet\Notification;
 
 use Kanboard\Core\Base;
 use Kanboard\Core\Notification\NotificationInterface;
 use Kanboard\Model\TaskModel;
 
-class RocketChat extends Base implements NotificationInterface
+class GoogleSheet extends Base implements NotificationInterface
 {
 
 /**
@@ -20,7 +20,6 @@ class RocketChat extends Base implements NotificationInterface
 public function notifyGoogleSheets($appScriptUrl, array $data, $eventName)
 {
     if (empty($data) || empty($eventName)) {
-        error_log("notifyGoogleSheets: Data or event name is empty.");
         return false;
     }
     $requestData = array(
@@ -34,7 +33,6 @@ public function notifyGoogleSheets($appScriptUrl, array $data, $eventName)
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
     if($response === false) {
-        error_log("notifyGoogleSheets: cURL error: " . curl_error($ch));
         curl_close($ch);
         return false;
     }
