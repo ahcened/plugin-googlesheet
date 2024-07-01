@@ -9,7 +9,7 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->hook->attach('template:config:integrations', 'GoofleSheet:config/integration');
+        $this->template->hook->attach('template:config:integrations', 'GoogleSheet:config/integration');
         $this->template->hook->attach('template:project:integrations', 'GoogleSheet:project/integration');
         $this->template->hook->attach('template:user:integrations', 'GoogleSheet:user/integration');
 
