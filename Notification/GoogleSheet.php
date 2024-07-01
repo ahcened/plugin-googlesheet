@@ -54,7 +54,7 @@ public function notifyGoogleSheets($appScriptUrl, array $data, $eventName)
      */
     public function notifyUser(array $user, $eventName, array $eventData)
     {
-        $webhook = $this->userMetadataModel->get($user['id'], 'rocketchat_webhook_url');
+        $webhook = $this->userMetadataModel->get($user['id'], 'googlesheet_webhook_url');
         if (! empty($webhook)) {
             if ($eventName === TaskModel::EVENT_OVERDUE) {
                 foreach ($eventData['tasks'] as $task) {
@@ -78,7 +78,7 @@ public function notifyGoogleSheets($appScriptUrl, array $data, $eventName)
      */
     public function notifyProject(array $project, $eventName, array $eventData)
     {
-        $webhook = $this->projectMetadataModel->get($project['id'], 'rocketchat_webhook_url');
+        $webhook = $this->projectMetadataModel->get($project['id'], 'googlesheet_webhook_url');
         if (! empty($webhook)) {
             $this->notifyGoogleSheets($webhook,$eventData,$eventName);
         }
